@@ -4,6 +4,7 @@ import { EyeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Button } from './ui/button'
 
 const StartupCard = ({ post }: { post: startupCardType }) => {
   return (
@@ -48,6 +49,16 @@ const StartupCard = ({ post }: { post: startupCardType }) => {
           className='rounded-md'
         />
       </Link>
+      <div className='flex-between gap-5 mt-5'>
+        <Link href={`/?query=${post.category.toLowerCase()}`}>
+        <p>{post.category}</p>
+        </Link>
+        <Button className='startup_card_btn' asChild>
+          <Link href={`/startup/${post._id}`}>
+          Details
+          </Link>
+        </Button>
+      </div>
     </li>
   )
 }
