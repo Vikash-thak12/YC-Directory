@@ -1,17 +1,15 @@
+import { formateDate } from '@/lib/utils'
 import { startupCardType } from '@/Types'
-import Image from 'next/image'
 import React from 'react'
 
 const StartupCard = ({ post }: {post: startupCardType}) => {
   return (
-    <li className='startup-card group'>
-        <span>{post.title}</span>
-        <Image
-        src={post.image}
-        alt='Post Image'
-        width={120}
-        height={30}
-         />
+    <li className='startup-card'>
+         <div className='flex-between'>
+          <p className='startup_card-_date'>
+            {formateDate(post?._createdAt)}
+          </p>
+         </div>
     </li>
   )
 }

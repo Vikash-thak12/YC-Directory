@@ -8,7 +8,7 @@ const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: stri
 
   const posts = [
     {
-      _createdAt: "Yesterday",
+      _createdAt: new Date(),
       views: 55,
       author: {
         _id: 1
