@@ -1,8 +1,8 @@
 import React from 'react'
 import Form from 'next/form'
-import SearchReset from './SearchReset'
 import { Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import SearchReset from './SearchReset'
 
 const SearchForm = ({ query }: {query?: string}) => {
     console.log("Query", query)

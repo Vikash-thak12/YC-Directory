@@ -1,5 +1,5 @@
+import SearchForm from "../../components/SearchForm"
 import React from 'react'
-import SearchForm from '../components/SearchForm'
 
 const HomePage = async ({ searchParams}: {searchParams: Promise<{ query?: string}>}) => {
   const query = (await searchParams).query;
