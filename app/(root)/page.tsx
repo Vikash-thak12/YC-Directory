@@ -11,7 +11,8 @@ const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: stri
       _createdAt: new Date(),
       views: 55,
       author: {
-        _id: 1
+        _id: 1,
+        name: "Vikash"
       },
       _id: 1,
       description: "This is description",

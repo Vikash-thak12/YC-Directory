@@ -2,7 +2,8 @@ export interface startupCardType {
     _createdAt: Date,
     views: number,
     author: {
-      _id: number
+      _id: number,
+      name: string
     },
     _id: number, 
     description: string,
