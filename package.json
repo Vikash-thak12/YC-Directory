@@ -20,6 +20,7 @@
     "@tailwindcss/typography": "github:tailwindcss/typography",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "easymde": "^2.18.0",
     "lucide-react": "^0.456.0",
     "next": "15.0.3",
     "next-auth": "^5.0.0-beta.25",
@@ -27,6 +28,7 @@
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "sanity": "^3.63.0",
+    "sanity-plugin-markdown": "^5.0.0",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
