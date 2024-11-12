@@ -45,7 +45,7 @@ const StartupCard = ({ post }: { post: startupCardType }) => {
           src={post.image}
           alt='Main Image'
           width={500}
-          height={100}
+          height={0}
           className='rounded-md'
         />
       </Link>

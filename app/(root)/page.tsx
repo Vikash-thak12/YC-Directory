@@ -2,25 +2,13 @@ import { startupCardType } from "@/Types";
 import SearchForm from "../../components/SearchForm"
 import React from 'react'
 import StartupCard from "@/components/StartupCard";
+import { startup_Query } from "@/lib/queries";
+import { client } from "@/sanity/lib/client";
 
 const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: {
-        _id: 1,
-        name: "Vikash"
-      },
-      _id: 1,
-      description: "This is description",
-      image: "https://images.unsplash.com/photo-1593349480506-8433634cdcbe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: "Robots",
-      title: "We Robots"
-    }
-  ]
+  const posts = await client.fetch(startup_Query)
 
 
   return (
