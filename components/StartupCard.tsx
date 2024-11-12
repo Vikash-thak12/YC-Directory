@@ -40,13 +40,13 @@ const StartupCard = ({ post }: { post: startupCardType }) => {
         </Link>
       </div>
       <Link href={`/startup/${post._id}`}>
-        <p className='startup_card_desc my-2'>{post.description}</p>
+        <p className='startup_card_desc my-2 line-clamp-1'>{post.description}</p>
         <Image
           src={post.image}
           alt='Main Image'
           width={500}
-          height={0}
-          className='rounded-md'
+          height={100}
+          className='rounded-md object-contain'
         />
       </Link>
       <div className='flex-between gap-5 mt-5'>
