@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react'
 import markdownit from "markdown-it"
 import { Skeleton } from '@/components/ui/skeleton';
+import View from '@/components/View';
 
 
 
@@ -14,8 +15,8 @@ const md = markdownit();
 export const experimental_ppr = true;
 
 const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
-  // const id = (await params).id;
-  const post = await client.fetch(startup_By_Id_Queries, params);
+  const id = (await params).id;
+  const post = await client.fetch(startup_By_Id_Queries, { id });
   if (!post) return notFound();
 
 
@@ -39,7 +40,7 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
               href={`/user/${post.author?._id}`}
               className="flex gap-2 items-center mb-3"
             >
-              <Image  
+              <Image
                 src={post.author.image}
                 alt="avatar"
                 width={64}
@@ -70,8 +71,8 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         <hr className="divider" />
 
         {/* PPR for showing the live views on the page */}
-        <Suspense fallback={<Skeleton className="w-[100px] h-[20px] rounded-full" />}>
-
+        <Suspense fallback={<Skeleton className="view-skeleton" />}>
+          <View id={id} />
         </Suspense>
       </section>
     </>
