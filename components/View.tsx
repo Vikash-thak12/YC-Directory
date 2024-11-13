@@ -12,7 +12,7 @@ const View = async ({ id }: {id: string}) => {
       </div>
 
       <p className='view-text'>
-        <span className='font-black'>{totalViews} Views</span>
+        <span className='font-black'>{totalViews} {totalViews > 1 ? "Views" : "View"}</span>
       </p>
     </div>
   )
