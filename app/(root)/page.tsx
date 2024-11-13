@@ -4,10 +4,14 @@ import React from 'react'
 import StartupCard from "@/components/StartupCard";
 import { startup_Query } from "@/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
   const query = (await searchParams).query;
   const params = { search: query || null}
+
+  const session = await auth();
+  console.log("the session", session?.id)
 
   // const posts = await client.fetch(startup_Query)
   const { data: posts} = await sanityFetch({ query: startup_Query, params})

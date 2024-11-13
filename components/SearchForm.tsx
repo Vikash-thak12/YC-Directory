@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import SearchReset from './SearchReset'
 
 const SearchForm = ({ query }: {query?: string}) => {
-    console.log("Query", query)
   return (
     <Form action="/" scroll={false} className='search-form'>
         <input 

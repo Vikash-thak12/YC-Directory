@@ -32,7 +32,7 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
       </section>
 
       <section className='section_container'>
-        <img src={post?.image} alt="Main post" className='h-96 w-full object-cover rounded-xl' />
+        <img src={post?.image} alt="Main post"  className='h-96 w-full object-cover rounded-xl' />
         <div className='space-y-5 mt-10 max-w-4xl mx-auto'>
           <div className='flex-between gap-5'>
 

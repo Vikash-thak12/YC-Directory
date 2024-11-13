@@ -8,7 +8,8 @@ import { writeClient } from '@/sanity/lib/writeClient';
 const View = async ({ id }: {id: string}) => {
     const { views: totalViews} = await client.withConfig({ useCdn: false}).fetch(startup_View_Query, { id })
 
-    after(() => {
+    // after function to delay the execution of the code until the page has been rendered to the user. This helps ensure that the view count only updates after the page is successfully displayed.
+    after(async () => {
         writeClient
           .patch(id)
           .set({ views: totalViews + 1})
