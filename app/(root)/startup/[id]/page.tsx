@@ -4,8 +4,9 @@ import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 import markdownit from "markdown-it"
+import { Skeleton } from '@/components/ui/skeleton';
 
 
 
@@ -33,11 +34,12 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         <img src={post?.image} alt="Main post" className='h-96 w-full object-cover rounded-xl' />
         <div className='space-y-5 mt-10 max-w-4xl mx-auto'>
           <div className='flex-between gap-5'>
-          <Link
+
+            <Link
               href={`/user/${post.author?._id}`}
               className="flex gap-2 items-center mb-3"
             >
-              <Image
+              <Image  
                 src={post.author.image}
                 alt="avatar"
                 width={64}
@@ -66,6 +68,11 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
 
         <hr className="divider" />
+
+        {/* PPR for showing the live views on the page */}
+        <Suspense fallback={<Skeleton className="w-[100px] h-[20px] rounded-full" />}>
+
+        </Suspense>
       </section>
     </>
   )
