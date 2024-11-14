@@ -32,8 +32,8 @@ const Navbar = async () => {
 
                             <Link href={`/user/${session?.id}`}>
                                 <Image
-                                    src={session?.user?.image}
-                                    alt={session?.user?.name}
+                                    src={session?.user?.image || "/user.png"}
+                                    alt={session?.user?.name || "User"}
                                     width={48}
                                     height={32}
                                     className='rounded-full object-contain'
