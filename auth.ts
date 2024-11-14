@@ -7,7 +7,10 @@ import { author_By_Github_Id_Query } from "./sanity/lib/queries"
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
   callbacks: {
-    async signIn({user: {name, email, image}, profile: {id, login, bio}}){
+    async signIn({user: {name, email, image}, profile}){
+      const id = profile?.id;
+      const login = profile?.login;
+      const bio = profile?.bio;
       const existingUser = await client.withConfig({ useCdn: false}).fetch(author_By_Github_Id_Query, { id })
 
       if(!existingUser){

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import React, { useActionState, useState } from 'react'
 import { Input } from './ui/input'
@@ -17,6 +18,7 @@ const StartupForm = () => {
   const { toast } = useToast();
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
       const formValues = {
@@ -107,7 +109,7 @@ const StartupForm = () => {
         <label htmlFor="pitch" className='startup-form_label'>Pitch</label>
         <MDEditor
           value={pitch}
-          onChange={(value: string) => setPitch(value as string)}
+          onChange={(value = "") => setPitch(value)}
           id='pitch'
           preview='edit'
           height={300}
