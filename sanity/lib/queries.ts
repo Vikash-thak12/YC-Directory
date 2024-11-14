@@ -38,3 +38,17 @@ export const author_By_Github_Id_Query = defineQuery(`
   `)
 
 export const author_By_Id_Query = defineQuery(`*[_type == "author" && _id == $id][0]{_id, id, name, username, email, image, bio}`)
+
+export const startup_By_Author_Query = defineQuery(`*[_type == "startup" && author._ref == $id] | order(_createdAt desc) {
+  _id, 
+  title, 
+  slug,
+  _createdAt,
+  author -> {
+    _id, name, image, bio
+  }, 
+  views,
+  description,
+  category,
+  image,
+}`)

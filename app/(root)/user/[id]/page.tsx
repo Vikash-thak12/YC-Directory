@@ -1,7 +1,9 @@
 import { auth } from '@/auth';
+import UserStartups from '@/components/UserStartups';
 import { client } from '@/sanity/lib/client';
 import { author_By_Id_Query } from '@/sanity/lib/queries';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react'
 
 const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
@@ -10,9 +12,13 @@ const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
     const user = await client.fetch(author_By_Id_Query, { id })
     const { name, image, bio, username} = user;
+
+    console.log("User id", user.id)
+    console.log("Normal id", id)
+
+    if(!user) return notFound();
     return (
         <>
-            page
             <section className='profile_container'>
                 <div className='profile_card !bg-gray-400'>
                     <div className='profile_title'>
@@ -38,7 +44,7 @@ const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
                     </p>
                     <ul className="card_grid-sm">
                         <Suspense>
-                            {/* <UserStartups id={id} /> */}
+                            <UserStartups id={id} />
                         </Suspense>
                     </ul>
                 </div>
