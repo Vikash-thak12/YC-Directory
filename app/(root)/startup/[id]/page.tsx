@@ -1,4 +1,3 @@
-import { startup_By_Id_Queries } from '@/lib/queries';
 import { formateDate } from '@/lib/utils';
 import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
@@ -8,6 +7,7 @@ import React, { Suspense } from 'react'
 import markdownit from "markdown-it"
 import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
+import { startup_By_Id_Queries } from '@/sanity/lib/queries';
 
 
 

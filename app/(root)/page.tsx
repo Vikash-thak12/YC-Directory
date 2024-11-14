@@ -2,9 +2,9 @@ import { startupCardType } from "@/Types";
 import SearchForm from "../../components/SearchForm"
 import React from 'react'
 import StartupCard from "@/components/StartupCard";
-import { startup_Query } from "@/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
+import { startup_Query } from "@/sanity/lib/queries";
 
 const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
   const query = (await searchParams).query;

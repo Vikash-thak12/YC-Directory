@@ -1,9 +1,9 @@
 import React from 'react'
 import Ping from './Ping'
 import { client } from '@/sanity/lib/client'
-import { startup_View_Query } from '@/lib/queries'
 import { unstable_after as after } from 'next/server';
 import { writeClient } from '@/sanity/lib/writeClient';
+import { startup_View_Query } from '@/sanity/lib/queries';
 
 const View = async ({ id }: {id: string}) => {
     const { views: totalViews} = await client.withConfig({ useCdn: false}).fetch(startup_View_Query, { id })
