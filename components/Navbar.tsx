@@ -6,7 +6,7 @@ import React from 'react'
 const Navbar = async () => {
     const session = await auth();
     return (
-        <header className='px-10 py-5 bg-white'>
+        <header className='px-2 py-4 md:px-10 md:py-5 bg-gray-400 shadow-lg shadow-gray-500'>
             <nav className='flex items-center justify-between text-black'>
                 <Link href={"/"}>
                     <Image
@@ -18,20 +18,26 @@ const Navbar = async () => {
                 </Link>
                 {session && session?.user ? (
                     <>
-                        <div className='flex items-center gap-5'>
+                        <div className='flex items-center gap-2 md:gap-5'>
                             <Link href={"/startup/create"}>
-                                <span>Create</span>
+                                <span className='font-bold md:text-xl hover:bg-gray-300 md:p-2 rounded-3xl'>Create</span>
                             </Link>
 
                             <form action={async () => {
                                 "use server"
-                                await signOut({ redirectTo: "/"})
+                                await signOut({ redirectTo: "/" })
                             }}>
-                                <button type='submit'>Signout</button>
+                                <button type='submit' className='font-bold md:text-xl hover:bg-gray-300 md:p-2 rounded-3xl'>Signout</button>
                             </form>
 
                             <Link href={`/user/${session?.id}`}>
-                                <span>{session?.user?.name}</span>
+                                <Image
+                                    src={session?.user?.image}
+                                    alt={session?.user?.name}
+                                    width={48}
+                                    height={32}
+                                    className='rounded-full object-contain'
+                                />
                             </Link>
                         </div>
                     </>

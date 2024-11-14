@@ -20,8 +20,8 @@ const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: stri
   return (
     <>
       <section className='pink_container'>
-        <h1 className='heading mx-auto'>Pitch your Starups, <br /> Connect with Entrepreneurs</h1>
-        <p className='sub-heading'>Submit Ideas, vote in pitches, and get noticed in virtual Competition</p>
+        {/* <h1 className='heading mx-auto'>Pitch your Starups, <br /> Connect with Entrepreneurs</h1>
+        <p className='sub-heading'>Submit Ideas, vote in pitches, and get noticed in virtual Competition</p> */}
         <SearchForm query={query} />
       </section>
       <section className="mt-5 section_container">
