@@ -11,9 +11,7 @@ const HomePage = async ({ searchParams }: { searchParams: Promise<{ query?: stri
   const params = { search: query || null }
 
   const session = await auth();
-  console.log("the session", session?.id)
-
-  // const posts = await client.fetch(startup_Query)
+  
   const { data: posts } = await sanityFetch({ query: startup_Query, params })
 
 
