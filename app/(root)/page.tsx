@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { startupCardType } from "@/Types";
 import SearchForm from "../../components/SearchForm"
 import React from 'react'

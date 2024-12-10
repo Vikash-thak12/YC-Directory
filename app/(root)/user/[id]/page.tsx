@@ -20,7 +20,7 @@ const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     return (
         <>
             <section className='profile_container'>
-                <div className='profile_card !bg-gray-400'>
+                <div className='profile_card !bg-[#EF2A69]'>
                     <div className='profile_title'>
                         <h3 className='text-24-black uppercase line-clamp-1 text-center'>
                             {name}
